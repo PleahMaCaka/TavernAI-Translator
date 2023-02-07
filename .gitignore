@@ -1,0 +1,12 @@
+# IDE
+.vscode
+.idea
+.fleet
+
+# not need
+node_modules
+TavernAI
+
+# output
+dist
+build

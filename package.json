@@ -1,0 +1,27 @@
+{
+    "name": "tavern-translator",
+    "version": "0.1.0",
+    "description": "",
+    "main": "index.js",
+    "type": "commonjs",
+    "scripts": {
+        "build": "tsc",
+        "webpack": "webpack",
+        "init": "git clone https://github.com/TavernAI/TavernAI && cd TavernAI && npm install",
+        "start:tavern": "cd TavernAI && node server.js"
+    },
+    "author": "PleahMaCaka",
+    "license": "MIT",
+    "dependencies": {
+        "@pleahmacaka/logger": "^2.0.1",
+        "@types/chrome": "^0.0.212",
+        "ts-loader": "^9.4.2"
+    },
+    "devDependencies": {
+        "clean-webpack-plugin": "^4.0.0",
+        "copy-webpack-plugin": "^11.0.0",
+        "typescript": "^4.9.5",
+        "webpack": "^5.75.0",
+        "webpack-cli": "^5.0.1"
+    }
+}
