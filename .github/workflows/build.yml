@@ -12,34 +12,35 @@ on:
       default: 'Hello'
       type: string
 
-env:
-  NODE_ENV: production
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup NodeJS
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
+          registry-url: "https://registry.npmjs.org"
 
-      - name: Setup pnpm cache
-        uses: actions/cache@v3
+      - uses: pnpm/action-setup@v2.2.4
+        name: Install pnpm
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: |
+          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
         with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
-
       - name: Install dependencies
-        run: |
-          npx pnpm install
+        run: pnpm install
 
-      - name: Webpack project
-        run: |
-          npx pnpm run webpack
+      - name: Build
+        run: pnpm run webpack
