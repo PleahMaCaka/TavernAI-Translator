@@ -1,4 +1,4 @@
-import { initTranslator } from "./AddTranslatorOption";
+import { initTranslator } from "./translator/AddTranslatorOption";
 
 console.log("TavernAI Translator: content loaded")
 

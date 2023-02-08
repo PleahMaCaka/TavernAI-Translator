@@ -30,11 +30,27 @@ function enableTranslatorTextarea() {
 	const sendForm = document.getElementById("send_form")
 
 	sendTextarea?.setAttribute("style", "width: 50%; height: 89px; margin-left: 0;")
+	translatorTextarea.setAttribute("placeholder", "Message to translate");
 	translatorTextarea.id = "translator_textarea"
 	translatorTextarea.setAttribute("style", "width: 50%; height: 89px; margin-left: 0;")
 	sendTextarea?.parentNode?.insertBefore(translatorTextarea, sendTextarea)
 
 	sendForm?.setAttribute("style", "display: flex; flex-direction: row;")
+
+	// ^ keydown ^ //
+	translatorTextarea.addEventListener("keydown", async (event) => {
+		if (event.key === "Enter") {
+			event.preventDefault()
+
+			// TODO logging translated value
+			if (translatorTextarea.value === "" || translatorTextarea.value === undefined) return
+
+			TranslatorState.input.set(translatorTextarea.value); // semi need idk why
+			(<HTMLInputElement>document.getElementById("send_textarea")).value = TranslatorState.output
+
+			translatorTextarea.value = ""
+		}
+	})
 }
 
 function disableTranslatorTextarea() {
@@ -50,5 +66,6 @@ function disableTranslatorTextarea() {
 }
 
 export function initTranslator() {
+	if (TranslatorState.enabled) enableTranslatorTextarea()
 	addTranslatorOption()
 }

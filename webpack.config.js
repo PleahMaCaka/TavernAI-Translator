@@ -8,7 +8,6 @@ module.exports = {
     experiments: {
         topLevelAwait: true
     },
-    // fallback true
     entry: {
         popup: "./src/popup/popup.ts",
         background: "./src/background/background.ts",
@@ -29,7 +28,7 @@ module.exports = {
     },
     resolve: {
         extensions: ['.ts', '.js'],
-        fallback: { url: require.resolve("url/") }
+        fallback: {}
     },
     plugins: [
         new CleanWebpackPlugin({

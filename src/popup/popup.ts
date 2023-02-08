@@ -1,7 +1,18 @@
-console.log("popup.ts is running")
-const enableBtn = document.getElementById('btn')
-if (enableBtn) {
-	console.log("enableBtn is not null")
-} else {
-	console.log("enableBtn is null")
-}
+// import { locales } from "../content/translator/Locales";
+//
+// const languageSelect = document.getElementById("language")
+//
+// window.addEventListener("load", () => {
+// 	locales.map(locale => {
+// 		const option = document.createElement("option")
+// 		option.setAttribute("value", locale)
+// 		option.value = locale
+// 		languageSelect?.appendChild(option)
+// 	})
+// })
+
+document.addEventListener('DOMContentLoaded', () => {
+	console.log('popup DOM loaded');
+});
+
+console.log("TavernAI Translator: popup loaded")
