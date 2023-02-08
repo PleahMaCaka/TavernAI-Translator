@@ -2,11 +2,23 @@
     "manifest_version": 3,
     "name": "TavernAI Translate Extension",
     "version": "0.1.0",
-    "permissions": ["storage", "activeTab", "scripting"],
+    "homepage_url": "https://github.com/PleahMaCaka/TavernAI-Translator",
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting"
+    ],
+    "host_permissions": [
+        "https://translate.google.com/"
+    ],
     "content_scripts": [
         {
-            "js": ["js/content/content.js"],
-            "matches": ["<all_urls>"]
+            "js": [
+                "js/content/content.js"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
         }
     ],
     "background": {

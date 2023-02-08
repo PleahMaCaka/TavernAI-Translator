@@ -4,7 +4,11 @@ const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
     devtool: "cheap-module-source-map",
-    mode: process.env.MODE || "production",
+    mode: process.env.MODE || "development",
+    experiments: {
+        topLevelAwait: true
+    },
+    // fallback true
     entry: {
         popup: "./src/popup/popup.ts",
         background: "./src/background/background.ts",
@@ -24,7 +28,8 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.ts', '.js']
+        extensions: ['.ts', '.js'],
+        fallback: { url: require.resolve("url/") }
     },
     plugins: [
         new CleanWebpackPlugin({

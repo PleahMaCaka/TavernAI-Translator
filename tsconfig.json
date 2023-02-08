@@ -1,12 +1,13 @@
 {
     "compilerOptions": {
-        "module": "CommonJS",
-        "target": "ES2022",
-        "strict": true,
+        "module": "ESNext",
+        "target": "ESNext",
+        "moduleResolution": "NodeNext",
         "esModuleInterop": true,
+        "strict": true,
         "sourceMap": false,
         "rootDir": "src",
-        "outDir": "build"
+        "outDir": "build",
     },
     "include": [
         "src/**/*"
