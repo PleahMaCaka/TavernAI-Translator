@@ -1,4 +1,4 @@
-name: Build
+name: build and release
 
 on:
   push:
@@ -44,11 +44,6 @@ jobs:
 
       - name: Build
         run: pnpm run webpack
-
-      - name: Download artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: dist
 
       - name: Create release
         uses: actions/create-release@v1
