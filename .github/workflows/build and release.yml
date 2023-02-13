@@ -46,7 +46,7 @@ jobs:
         run: pnpm run webpack
 
       - name: Release
-        uses: actions/create-release@v2
+        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GHP_TOKEN }}
         with:
