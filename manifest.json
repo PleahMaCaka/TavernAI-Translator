@@ -9,7 +9,7 @@
         "scripting"
     ],
     "host_permissions": [
-        "https://translate.google.com/"
+        "https://translate.google.com/*"
     ],
     "content_scripts": [
         {

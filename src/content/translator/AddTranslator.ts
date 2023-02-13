@@ -1,6 +1,7 @@
-import { TranslatorState } from "./TranslatorState"
+import { postData } from "../../background/Translator";
+import { TranslatorConfig } from "./TranslatorConfig"
 
-function addTranslatorOption() {
+function addTranslator() {
 	const optionsContent = document.querySelector(".options-content")
 	optionsContent?.setAttribute("style", "top: -50px")
 
@@ -17,9 +18,9 @@ function addTranslatorOption() {
 	document
 		.getElementById("option_toggle_translator")
 		?.addEventListener("click", () => {
-			TranslatorState.enabled = !TranslatorState.enabled
-			console.log("TavernAI Translator: " + TranslatorState.enabled)
-			if (TranslatorState.enabled) enableTranslatorTextarea()
+			TranslatorConfig.enabled = !TranslatorConfig.enabled
+			console.log("TavernAI Translator: " + TranslatorConfig.enabled)
+			if (TranslatorConfig.enabled) enableTranslatorTextarea()
 			else disableTranslatorTextarea()
 		})
 }
@@ -39,20 +40,25 @@ function enableTranslatorTextarea() {
 
 	// ^ keydown ^ //
 	translatorTextarea.addEventListener("keydown", async (event) => {
-		if (event.key === "Enter") {
-			event.preventDefault()
+		if (event.key !== "Enter") return
+		event.preventDefault()
 
-			// TODO logging translated value
-			if (translatorTextarea.value === "" || translatorTextarea.value === undefined) return
+		if (translatorTextarea.value === "" || translatorTextarea.value === undefined) return
 
-			TranslatorState.input.set(translatorTextarea.value); // semi need idk why
-			(<HTMLInputElement>document.getElementById("send_textarea")).value = TranslatorState.output
+		await postData(translatorTextarea.value);
 
-			translatorTextarea.value = ""
-		}
+		(<HTMLInputElement>document.getElementById("send_textarea")).value
+			= await chrome.storage.local.get("translated").then(res => res["translated"]);
+
+		(<HTMLInputElement>sendTextarea)?.focus()
+
+		translatorTextarea.value = ""
 	})
 }
 
+/**
+ * revert all css changes
+ */
 function disableTranslatorTextarea() {
 	const sendTextarea = document.querySelector("#send_textarea")
 	const translatorTextarea = document.querySelector("#translator_textarea")
@@ -66,6 +72,6 @@ function disableTranslatorTextarea() {
 }
 
 export function initTranslator() {
-	if (TranslatorState.enabled) enableTranslatorTextarea()
-	addTranslatorOption()
+	if (TranslatorConfig.enabled) enableTranslatorTextarea()
+	addTranslator()
 }

@@ -1,10 +1,15 @@
 ## TavernAI Built-In Translator
 
+[Korean](readme/ko.md)
+
 Adds a translator toggle to TavernAI.
 
-### **Still working on it**
+### **It's working with CORS Unblock**
 
-![img.png](readme/toggle.png)
+Install [CORS Unblock](https://chrome.google.com/webstore/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino/related)
+and enable it  
+Have suggestion? -> [Here](https://github.com/PleahMaCaka/TavernAI-Translator/issues/2)
+![toggle.png](readme/img/toggle.png)
 
 ## Getting Started
 
