@@ -44,3 +44,14 @@ jobs:
 
       - name: Build
         run: pnpm run webpack
+
+      - name: Release
+        uses: actions/create-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GHP_TOKEN }}
+        with:
+          tag_name: ${{ env.TAG_NAME }}
+          release_name: Release ${{ env.TAG_NAME }}
+          draft: false
+          prerelease: false
+          assets: dist/*
