@@ -43,12 +43,8 @@ jobs:
       - name: Build
         run: pnpm run webpack
 
-      - uses: montudor/action-zip@v1
-        with:
-          args: zip -qq -r extension.zip dist
-
       - name: Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "dist.zip"
+          artifacts: "dist/*"
           allowUpdates: true
