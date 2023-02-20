@@ -48,7 +48,7 @@ jobs:
         run: pnpm run webpack
 
       - name: Set environment variables
-        run: echo ::set-env name=TAG_NAME::$(cat package.json | jq -r .version)
+        run: echo "TAG_NAME=$(cat package.json | jq -r .version)" >> $GITHUB_ENV
 
       - name: Create release
         uses: actions/create-release@v1
