@@ -2,10 +2,12 @@ import { initTranslator } from "./translator/AddTranslator";
 
 console.log("TavernAI Translator: content loaded")
 
-const textarea = document.getElementById("send_textarea")
-
-if (!textarea) console.log("TavernAI Translator: textarea not found")
+if (document.getElementById("send_textarea"))
+	console.log("TavernAI Translator: textarea found")
+else
+	console.log("TavernAI Translator: textarea not found")
 
 window.addEventListener("load", () => {
+	console.log("TavernAI Translator: init translator")
 	initTranslator()
 })
