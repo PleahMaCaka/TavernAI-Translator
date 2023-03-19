@@ -1,43 +1,43 @@
 {
-    "manifest_version": 3,
-    "name": "TavernAI Translate Extension",
-    "version": "0.1.0",
-    "homepage_url": "https://github.com/PleahMaCaka/TavernAI-Translator",
-    "permissions": [
-        "storage",
-        "activeTab",
-        "scripting"
-    ],
-    "host_permissions": [
-        "https://translate.google.com/*"
-    ],
-    "content_scripts": [
-        {
-            "js": [
-                "js/content/content.js"
-            ],
-            "matches": [
-                "<all_urls>"
-            ]
-        }
-    ],
-    "background": {
-        "service_worker": "js/background/background.js",
-        "type": "module"
-    },
-    "action": {
-        "default_popup": "popup.html",
-        "default_icon": {
-            "16": "assets/logo192.png",
-            "32": "assets/logo192.png",
-            "48": "assets/logo192.png",
-            "128": "assets/logo192.png"
-        }
-    },
-    "icons": {
-        "16": "assets/logo192.png",
-        "32": "assets/logo192.png",
-        "48": "assets/logo192.png",
-        "128": "assets/logo192.png"
+  "manifest_version": 3,
+  "name": "TavernAI Translate Extension",
+  "version": "0.1.0",
+  "homepage_url": "https://github.com/PleahMaCaka/TavernAI-Translator",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://translate.google.com/*"
+  ],
+  "content_scripts": [
+    {
+      "js": [
+        "js/content/content.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
     }
+  ],
+  "background": {
+    "service_worker": "js/background/background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/logo192.png",
+      "32": "assets/logo192.png",
+      "48": "assets/logo192.png",
+      "128": "assets/logo192.png"
+    }
+  },
+  "icons": {
+    "16": "assets/logo192.png",
+    "32": "assets/logo192.png",
+    "48": "assets/logo192.png",
+    "128": "assets/logo192.png"
+  }
 }

@@ -1,5 +1,5 @@
-import {postData} from "../../background/Translator";
-import {TranslatorConfig} from "./TranslatorConfig"
+import { postData } from "../../background/Translator";
+import { TranslatorConfig } from "./TranslatorConfig"
 
 function addTranslator() {
     // opened options

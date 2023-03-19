@@ -1,0 +1,10 @@
+root = true
+
+[*.ts]
+indent_style = space
+indent_size = 4
+
+ij_typescript_spaces_within_imports = true
+
+[*.{json,yml}]
+indent_size = 2

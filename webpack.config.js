@@ -1,5 +1,5 @@
 const path = require("path")
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
@@ -36,9 +36,9 @@ module.exports = {
         }),
         new CopyPlugin({
             patterns: [
-                { from: "manifest.json", to: "manifest.json" },
-                { from: "assets", to: "assets" },
-                { from: "src/popup.html", to: "popup.html" },
+                {from: "manifest.json", to: "manifest.json"},
+                {from: "assets", to: "assets"},
+                {from: "src/popup.html", to: "popup.html"},
             ]
         })
     ]

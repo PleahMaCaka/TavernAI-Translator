@@ -12,7 +12,7 @@
 // })
 
 document.addEventListener('DOMContentLoaded', () => {
-	console.log('popup DOM loaded')
+    console.log('popup DOM loaded')
 })
 
 console.log("TavernAI Translator: popup loaded")
