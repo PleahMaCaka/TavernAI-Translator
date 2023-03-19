@@ -1,4 +1,5 @@
 import { initTranslator } from "./translator/AddTranslator";
+import {initCharacterMessageTranslator} from "./CharacterMessageTranslate";
 
 console.log("TavernAI Translator: content loaded")
 
@@ -10,4 +11,5 @@ else
 window.addEventListener("load", () => {
 	console.log("TavernAI Translator: init translator")
 	initTranslator()
+	initCharacterMessageTranslator()
 })
